@@ -1,0 +1,10 @@
+{
+  "profiles": [
+    {
+      "id": 1,
+      "name": "Dmitriy",
+      "age": 20,
+      "avatar": ""
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX Demo</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <scirpt src="//cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></scirpt>
+</head>
+<body class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Action Buttons</h3>
+
+      <button class="btn btn-default" id="clearLog" style="float: right;">Clear Log</button>
+
+      <h5>Example 1 - Get Profile Sync / Async / Fetch API:</h5>
+      <button class="btn btn-default" id="getProfileSync">Get Profile (Sync)</button>
+      <button class="btn btn-default" id="getProfileAsync">Get Profile (Async)</button>
+      <button class="btn btn-default" id="getProfileFetchAPI">Get Profile (Fetch API)</button>
+
+      <h5>Example 2 - Create Profile:</h5>
+      <div style="border: 1px solid lightgray; padding: 10px; margin-top: 10px;">
+        <form onsubmit="return false;">
+          <div class="form-group">
+            <label for="profileName">Your name</label>
+            <input type="text" class="form-control" id="profileName" placeholder="John" />
+          </div>
+          <div class="form-group">
+            <label for="profileAge">Your age</label>
+            <input type="number" class="form-control" id="profileAge" placeholder="20" />
+          </div>
+          <button class="btn btn-default" type="button" id="createProfile">Create Profile</button>
+        </form>
+      </div>
+
+      <h5>Example 3 - Upload Profile Avatar:</h5>
+      <div style="border: 1px solid lightgray; padding: 10px; margin-top: 10px;">
+        <form onsubmit="return false;">
+          <div class="form-group">
+            <label for="profileAge">User ID</label>
+            <input type="number" class="form-control" id="userId" placeholder="1" />
+          </div>
+          <div class="form-group">
+            <label for="profileAvatarFile">Profile Avatar</label>
+            <input type="file" id="profileAvatarFile">
+          </div>
+          <button class="btn btn-default" type="submit" id="uploadAvatar">Upload</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-6" style="margin-top: 15px;">
+      <h3>Requests / responses log:</h3>
+      <div id="messagesList"></div>
+    </div>
+  </div>
+
+  <script src="scripts/utils.js"></script>
+  <script src="scripts/requests.js"></script>
+  <script src="scripts/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "fake-json-server",
+  "version": "0.1.0",
+  "description": "Fake server for small demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.8.16",
+    "multer": "^1.1.0"
+  }
+}
