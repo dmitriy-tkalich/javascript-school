@@ -3,7 +3,7 @@ var endpoint = 'http://52.32.195.195:3000';
 /**
  * Send GET /profiles request to retrieve profile
  */
-function getProfile(isAsync, callback) {
+function getProfile(isAsync, callback, start, end) {
   var xmlhttp = new XMLHttpRequest();  // Create XMLHttpRequest object to make AJAX request
 
   // Set event handler for request status change
@@ -28,10 +28,24 @@ function getProfile(isAsync, callback) {
   // * requestType -- type of request, e.g. GET, POST, PUT etc.
   // * URL -- url to make request
   // * isAsync -- show if request should be async or sync
-  xmlhttp.open('GET', endpoint + '/profiles', isAsync);
+  var url = endpoint + '/profiles';
+
+  var params = [];
+  if(start) params.push('_start=' + start);
+  if(end) params.push('_end=' + end);
+  if(params) url += '?' + params.join('&');
+
+  xmlhttp.open('GET', url, isAsync);
 
   // Send request to server (specified in open method URL)
   xmlhttp.send();
+}
+
+function getSingleProfile(profileId) {
+  // Call fetch method, which will initiate request immediately and provide to you response in callback
+  return fetch(endpoint + '/profiles?id=' + profileId, { method: 'get' }).then(function(response) {
+    return response.json();
+  });
 }
 
 /**
